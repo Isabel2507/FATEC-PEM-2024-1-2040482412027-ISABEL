@@ -1,3 +1,4 @@
+//Este código simula de forma modularizada uma calculadora simples
 #include <stdio.h>
 
 float adicao(float a, float b) {
