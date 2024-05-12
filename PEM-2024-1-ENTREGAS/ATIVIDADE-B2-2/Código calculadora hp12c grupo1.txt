@@ -1,3 +1,4 @@
+//Este código simula o funcionamento de uma calculadora HP12C
 #include <stdio.h>  //Importar Biblioteca
 #include <stdlib.h>   //Importar Biblioteca
 #include <string.h> //Incluir Biblioteca de String 
