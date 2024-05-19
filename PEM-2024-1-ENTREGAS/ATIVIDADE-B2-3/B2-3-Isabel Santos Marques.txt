@@ -1,0 +1,94 @@
+//Este código cria uma lista de alunos utilizando o método de busca bubblesort
+#include <stdio.h>
+#include <string.h>
+
+#define MAX_ALUNOS 50
+#define NOMEALUNOS_TAM 50
+
+typedef struct {
+    char nome[NOMEALUNOS_TAM];
+    double nota;
+} Aluno;
+
+void incluirAluno(Aluno alunos[], int totalAlunos);
+void listarAlunos(Aluno alunos[], int totalAlunos);
+void ordenarAlunos(Aluno alunos[], int totalAlunos);
+
+int main() {
+    Aluno alunos[MAX_ALUNOS];
+    int totalAlunos = 0;
+    int opcao;
+
+    do {
+        printf("\nMenu:\n");
+        printf("1. Incluir aluno\n");
+        printf("2. Listar alunos\n");
+        printf("3. Sair\n");
+        printf("Escolha uma opção: ");
+        scanf("%d", &opcao);
+        getchar();  
+
+        switch (opcao) {
+            case 1:
+                if (totalAlunos < MAX_ALUNOS) {
+                    incluirAluno(alunos, totalAlunos);
+                    totalAlunos++;
+                } else {
+                    printf("Limite de alunos atingido!\n");
+                }
+                break;
+            case 2:
+                listarAlunos(alunos, totalAlunos);
+                break;
+            case 3:
+                printf("Saindo do programa...\n");
+                break;
+            default:
+                printf("Opção inválida! Tente novamente.\n");
+        }
+    } while (opcao != 3);
+
+    return 0;
+}
+
+void incluirAluno(Aluno alunos[], int totalAlunos) {
+    Aluno novoAluno;
+
+    printf("Nome do aluno: ");
+    fgets(novoAluno.nome, NOMEALUNOS_TAM, stdin);
+    novoAluno.nome[strcspn(novoAluno.nome, "\n")] = '\0';  
+
+    printf("Nota do aluno: ");
+    scanf("%lf", &novoAluno.nota);
+    getchar();  
+
+    alunos[totalAlunos] = novoAluno;
+}
+
+void listarAlunos(Aluno alunos[], int totalAlunos) {
+    if (totalAlunos == 0) {
+        printf("Nenhum aluno cadastrado!\n");
+        return;
+    }
+
+    ordenarAlunos(alunos, totalAlunos);
+
+    printf("\nLista de Alunos:\n");
+    for (int i = 0; i < totalAlunos; i++) {
+        printf("Nome: %s, Nota: %.2f, Situação: %s\n",
+               alunos[i].nome, alunos[i].nota,
+               (alunos[i].nota >= 6.0) ? "Aprovado" : "Reprovado");
+    }
+}
+
+void ordenarAlunos(Aluno alunos[], int totalAlunos) {
+    for (int i = 0; i < totalAlunos - 1; i++) {
+        for (int j = 0; j < totalAlunos - 1 - i; j++) {
+            if (strcmp(alunos[j].nome, alunos[j + 1].nome) > 0) {
+                Aluno temp = alunos[j];
+                alunos[j] = alunos[j + 1];
+                alunos[j + 1] = temp;
+            }
+        }
+    }
+}
