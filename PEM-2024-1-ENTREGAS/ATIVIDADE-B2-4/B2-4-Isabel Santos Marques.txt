@@ -1,3 +1,5 @@
+//Isabel Santos Marques
+//ADS Tarde
 //Este código simula um site de compras onde o usuário pode escolher o produto que deseja comprar e a quantidade utilizando structs, ponteiros e bubblesort.
 #include <stdio.h>
 #include <stdlib.h>
