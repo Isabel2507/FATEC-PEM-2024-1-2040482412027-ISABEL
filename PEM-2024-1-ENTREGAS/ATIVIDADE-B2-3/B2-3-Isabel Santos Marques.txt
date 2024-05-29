@@ -1,3 +1,5 @@
+//Isabel Santos Marques
+//ADS Tarde
 //Este código cria uma lista de alunos utilizando o método de busca bubblesort
 #include <stdio.h>
 #include <string.h>
