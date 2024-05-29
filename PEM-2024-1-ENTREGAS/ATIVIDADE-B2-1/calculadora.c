@@ -1,3 +1,5 @@
+//Isabel Santos Marques
+//ADS Tarde
 //Este código simula de forma modularizada uma calculadora simples
 #include <stdio.h>
 
